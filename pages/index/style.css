@@ -1,0 +1,171 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 97vh;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+
+.logout-button {
+  position: absolute;
+  right: 20px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #d9363e;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9ecef;
+  margin-bottom: 20px;
+}
+
+.loading{
+  max-width: 400px;
+}
+.responsive-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.refresh-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.refresh-button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  color: #6c757d;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.5s ease;
+}
+.slide-enter {
+  transform: translateX(100%);
+}
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  transition: transform 0.5s;
+}
+.zoom-enter {
+  transform: scale(0);
+}
+.zoom-leave-to {
+  transform: scale(0);
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px; 
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .logout-button {
+    margin-top: 10px;
+    right: auto;
+    width: 100%;
+    text-align: center; 
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 5px;
+    gap: 5px; 
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logout-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    text-align: center;
+    position: static;
+    margin-top: 10px;
+  }
+}
