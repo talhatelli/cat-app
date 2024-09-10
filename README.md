@@ -1,7 +1,9 @@
 # Cat App
 
+
 ## Project Description
 This project is a modern web application built with Nuxt 3, Pinia and Tailwind CSS. It includes features such as user session management, dynamic image fetching, and animation effects. The project has a user login page and a website where authenticated users will randomly rotate images of a cat.
+
 
 ## Features
 **User Authentication:** Secure login and logout functionality with session management.
@@ -14,12 +16,37 @@ This project is a modern web application built with Nuxt 3, Pinia and Tailwind C
 
 **Responsive Design:** Fully responsive UI for a smooth experience on all devices.
 
+
 ## Screenshots
 ### Main Page:
 <img width="1440" alt="Screenshot 2024-09-10 at 16 38 07" src="https://github.com/user-attachments/assets/bf27408e-de1b-44ef-99ec-90c579f3a6ec">
 
+
 ### Login Page:
 <img width="1440" alt="Screenshot 2024-09-10 at 16 07 34" src="https://github.com/user-attachments/assets/ab3dc58a-b04c-444b-88b4-78ce4eb65480">
+
+
+## API Endpoints
+
+### Login Endpoint
+
+**URL:** /api/login
+
+**Method:** POST
+
+**Description:** Authenticates the user and returns a token along with the user information.
+
+### Image Search Endpoint
+
+**URL:** /api/image/search
+
+**Method:** GET
+
+**Description:** Fetches random Cat images.
+
+**Authentication Required:** Yes
+
+**Proxy:** Request is proxy to external service **https://api.thecatapi.com/v1/images/search**
 
 
 ## Technologies and Libraries Used
@@ -39,6 +66,10 @@ This project is a modern web application built with Nuxt 3, Pinia and Tailwind C
 
 **Axios:** For HTTP requests.
 
+![images](https://github.com/user-attachments/assets/495560ec-c8b0-48ee-a31c-f0ecaadc480c)
+
+**JSON Web Tokens:** JWT is a compact, secure token for authenticating and transmitting data.
+
 
 ## Clone the Project
 
@@ -48,6 +79,7 @@ git clone https://github.com/talhatelli/cat-app.git
 cd cat-app
 ```
 
+
 ## Install Dependencies
 ```bash
 # npm
@@ -56,6 +88,7 @@ npm install
 # yarn
 yarn install
 ```
+
 
 ## Development Server
 
