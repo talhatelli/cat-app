@@ -9,13 +9,14 @@
     </header>
     <div class="container">
       <div class="image-container" ref="imageContainer">
-        <transition v-if="imageUrl" :name="currentEffect">
+        <transition v-if="image" :name="currentEffect">
           <img
-            :src="imageUrl"
-            alt="Fetched Image"
+            :src="image.url"
+            :width="image.width"
+            :height="image.height"
+            alt="Random Cat Image"
             class="responsive-image"
-            :key="imageUrl"
-            @load="updateContainerSize"
+            :key="image.id"
           />
         </transition>
         <img v-else :src="Loading" alt="Loading" class="loading" />
@@ -45,39 +46,24 @@ const currentEffect = ref('zoom');
 const imageStore = useImageStore();
 const authStore = useAuthStore();
 const imageContainer = ref(null);
-const imageUrl = ref(imageStore.imageUrl);
+const image = ref(imageStore.image);
 
 const fetchImage = async () => {
-  try {
-    await imageStore.fetchImage();
-    if (!imageStore.error) {
-      currentEffect.value = effects[Math.floor(Math.random() * effects.length)];
-    }
-  } catch (err) {
-    console.error('Error fetching image:', err);
-  }
-};
-
-const updateContainerSize = (event) => {
-  const image = event.target;
-  const height = image.naturalHeight;
-  const width = image.naturalWidth;
-
-  if (imageContainer.value) {
-    imageContainer.value.style.height = `${height}px`;
-    imageContainer.value.style.width = `${width}px`;
+  await imageStore.fetchImage();
+  if (currentEffect.value) {
+    currentEffect.value = effects[Math.floor(Math.random() * effects.length)];
   }
 };
 
 const logout = () => {
   authStore.logout();
-  imageStore.imageUrl = null;
+  imageStore.image = null;
 };
 
 watch(
-  () => imageStore.imageUrl,
+  () => imageStore.image,
   (newValue) => {
-    imageUrl.value = newValue;
+    image.value = newValue;
   },
 );
 

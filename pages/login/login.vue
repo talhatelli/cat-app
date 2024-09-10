@@ -40,12 +40,12 @@ const validate = (state: any): FormError[] => {
   return errors;
 };
 
-const onSubmit = (event: FormSubmitEvent<any>) => {
+const onSubmit = async (event: FormSubmitEvent<any>) => {
   try {
-    authStore.login(state.email, state.password);
+    await authStore.login(state.email, state.password);
     router.push('/');
   } catch (error) {
-    errorMessage.value = error.message || 'Invalid email or password';
+    errorMessage.value = error?.message || 'Invalid email or password';
   }
 };
 

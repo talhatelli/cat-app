@@ -3,16 +3,18 @@ import axios from 'axios';
 
 export const useImageStore = defineStore('image', {
   state: () => ({
-    imageUrl: null,
-    error: null,
+    image: null,
   }),
   actions: {
     async fetchImage() {
       try {
-        const { data } = await axios.get('/api/images/search');
-        this.imageUrl = data?.[0]?.url || null;
+        const token = localStorage.getItem('token');
+        if (!token) {
+          throw new Error('No token found in localStorage');
+        }
+        const { data } = await axios.get('/api/images/search', { headers: { Authorization: `Bearer ${token}` } });
+        this.image = data?.[0];
       } catch (error) {
-        this.error = error;
         console.error('Error fetching image:', error);
       }
     },
