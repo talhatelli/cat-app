@@ -2,43 +2,53 @@
   <div class="login-container">
     <CompanyLogo />
     <Title />
-    <form @submit.prevent="handleLogin" class="login-form">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input v-model="email" type="email" id="email" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input v-model="password" type="password" id="password" required />
-      </div>
-      <button type="submit" class="login-button">Login</button>
-    </form>
-    <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <UForm class="login-form" :validate="validate" :state="state" @submit="onSubmit">
+      <UFormGroup label="Email" name="email">
+        <UInput v-model="state.email" placeholder="Enter your email" />
+      </UFormGroup>
+      <UFormGroup label="Password" name="password">
+        <UInput v-model="state.password" type="password" placeholder="Enter your password" />
+      </UFormGroup>
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <CustomButton type="submit" class="login-button" label="Login" />
+    </UForm>
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
+<script setup lang="ts">
+import { ref, reactive, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '~/store/auth';
 import CompanyLogo from '~/components/CompanyLogo';
 import Title from '~/components/Title';
 import './style.css';
+import type { FormError, FormSubmitEvent } from '#ui/types';
+import CustomButton from '~/components/CustomButton';
 
-const email = ref('');
-const password = ref('');
+const state = reactive({
+  email: '',
+  password: '',
+});
 const errorMessage = ref('');
 const router = useRouter();
 const authStore = useAuthStore();
 
-const handleLogin = () => {
-  if (email.value === authStore.validUser.email && password.value === authStore.validUser.password) {
-    authStore.login({ email: authStore.validUser.email });
+const validate = (state: any): FormError[] => {
+  const errors = [];
+  if (!state.email) errors.push({ path: 'email', message: 'Email is required' });
+  if (!state.password) errors.push({ path: 'password', message: 'Password is required' });
+  return errors;
+};
+
+const onSubmit = (event: FormSubmitEvent<any>) => {
+  try {
+    authStore.login(state.email, state.password);
     router.push('/');
-  } else {
-    errorMessage.value = 'Invalid email or password';
+  } catch (error) {
+    errorMessage.value = error.message || 'Invalid email or password';
   }
 };
+
 onMounted(() => {
   authStore.restoreSession();
 });

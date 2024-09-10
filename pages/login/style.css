@@ -5,7 +5,7 @@
   justify-content: center;
   height: 100vh;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
 }
 
 .login-form {
@@ -16,28 +16,34 @@
   max-width: 400px;
   padding: 20px;
   border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.u-form-group {
   display: flex;
   flex-direction: column;
 }
 
-label {
+.u-form-group label {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-input {
+.u-input {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
 }
 
-.login-button {
+.u-button {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -47,14 +53,13 @@ input {
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-
-.login-button:hover {
-  background-color: #0056b3;
+.login-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.error-message {
-  color: red;
-  margin-top: 10px;
+.u-button:hover {
+  background-color: #0056b3;
 }
 
 @media (max-width: 768px) {
@@ -69,7 +74,7 @@ input {
     padding: 15px;
   }
 
-  .login-button {
+  .u-button {
     padding: 8px;
     font-size: 14px;
   }

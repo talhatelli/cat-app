@@ -5,6 +5,7 @@
   min-height: 97vh;
   overflow: hidden;
   background-color: #f8f9fa;
+  align-items: center;
 }
 
 .header {
@@ -14,20 +15,12 @@
   padding: 20px;
   background-color: #f0f0f0;
   position: relative;
+  width: 100%;
 }
-
 
 .logout-button {
   position: absolute;
   right: 20px;
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
@@ -41,13 +34,17 @@
   justify-content: center;
   height: auto;
   padding: 20px;
+  width: 100%; 
 }
 
 .image-container {
   width: 100%;
-  max-width: 400px;
+  min-width: 100px; 
+  max-width: 600px; 
   height: auto;
-  aspect-ratio: 1;
+  min-height: 100px; 
+  max-height: 600px;
+  aspect-ratio: auto;
   border: 2px dashed #ccc;
   border-radius: 10px;
   display: flex;
@@ -55,7 +52,10 @@
   justify-content: center;
   background-color: #e9ecef;
   margin-bottom: 20px;
+  overflow: hidden; 
 }
+
+
 
 .loading{
   max-width: 400px;
@@ -75,22 +75,13 @@
 .refresh-button {
   width: 50px;
   height: 50px;
-  border: none;
   border-radius: 50%;
-  background-color: #007bff;
-  color: white;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
   font-size: 20px;
 }
 
-.refresh-button:hover {
-  background-color: #0056b3;
-}
-
 .footer {
+  width: 100%;
   text-align: center;
   padding: 10px;
   background-color: #f0f0f0;
@@ -139,6 +130,7 @@
   .logo {
     width: 50px;
     height: 50px;
+    margin: 0 auto; 
   }
 
 
