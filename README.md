@@ -1,23 +1,60 @@
-# Nuxt 3 Minimal Starter
+# Cat App
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Project Description
+This project is a modern web application built with Nuxt 3, Pinia and Tailwind CSS. It includes features such as user session management, dynamic image fetching, and animation effects. The project has a user login page and a website where authenticated users will randomly rotate images of a cat.
 
-## Setup
+## Features
+**User Authentication:** Secure login and logout functionality with session management.
 
-Make sure to install the dependencies:
+**Dynamic Image Fetching & Animations:** Fetch images with random transition effects.
 
+**Pinia for State Management:** Global state management using Pinia.
+
+**Nuxt  with SSR:** Server-side rendering for fast loading and caching.
+
+**Responsive Design:** Fully responsive UI for a smooth experience on all devices.
+
+## Screenshots
+### Main Page:
+<img width="1440" alt="Screenshot 2024-09-10 at 16 38 07" src="https://github.com/user-attachments/assets/bf27408e-de1b-44ef-99ec-90c579f3a6ec">
+
+### Login Page:
+<img width="1440" alt="Screenshot 2024-09-10 at 16 07 34" src="https://github.com/user-attachments/assets/ab3dc58a-b04c-444b-88b4-78ce4eb65480">
+
+
+## Technologies and Libraries Used
+![download](https://github.com/user-attachments/assets/9f3003bf-7f0c-4a1a-a404-093d37bcd72c)
+
+**Nuxt.js:** A powerful Vue.js framework.
+
+![images (1)](https://github.com/user-attachments/assets/3c90460b-491b-4a4a-a01a-b907b74567c9)
+
+**Pinia:** State management.
+
+![images](https://github.com/user-attachments/assets/79750dca-1114-41ba-99e6-91a95f7d003f)
+
+**Nuxt UI:** A modern CSS framework.
+
+![download (1)](https://github.com/user-attachments/assets/e1993db9-a5a0-4dcd-9f64-5a55b172bcef)
+
+**Axios:** For HTTP requests.
+
+
+## Clone the Project
+
+```bash
+
+git clone https://github.com/talhatelli/cat-app.git
+cd cat-app
+```
+
+## Install Dependencies
 ```bash
 # npm
 npm install
 
-# pnpm
-pnpm install
-
 # yarn
 yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -28,50 +65,8 @@ Start the development server on `http://localhost:3000`:
 # npm
 npm run dev
 
-# pnpm
-pnpm run dev
-
 # yarn
 yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-// npx prettier --write .
